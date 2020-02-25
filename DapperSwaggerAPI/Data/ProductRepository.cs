@@ -25,13 +25,14 @@ namespace DapperSwaggerAPI.Data
             }
         }
 
-        public void Add(Product prod)
+        public void Add(Product Product)
         {
+            //todo-changed table name to "Product"
             using(IDbConnection dbConnection = Connection)
             {
-                string sQuery = @"INSERT INTO Products (Name,Quantity,Price) VALUES (@Name,@Quantity,@Price)";
+                string sQuery = @"INSERT INTO Product (Name,Quantity,Price) VALUES (@Name,@Quantity,@Price)";
                 dbConnection.Open();
-                dbConnection.Execute(sQuery, prod);
+                dbConnection.Execute(sQuery, Product);
             }
         }
 
